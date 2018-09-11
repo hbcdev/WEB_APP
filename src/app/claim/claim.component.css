@@ -1,0 +1,61 @@
+.dark-modal .modal-content {
+    background-color: #292b2c;
+    color: white;
+  }
+  .dark-modal .close {
+    color: white;
+  }
+  .light-blue-backdrop {
+    background-color: #5cb3fd;
+  }
+#snackbar {
+   visibility: hidden;
+   min-width: 250px;
+   margin-left: -125px;
+   background-color: #ff3547;
+   color: #fff;
+   /* text-align: center; */
+   /* box-shadow: 3px 5px 4px rgba(88, 88, 88, 0.83); */
+   border-radius: 2px;
+   padding: 10px;
+   position: absolute;
+   z-index: 1;
+   /* left: 50%; */
+   top:70px;
+   right: 30px;
+   /* bottom: 80px; */
+   font-size: 16px;
+}
+
+#snackbar.show {
+   visibility: visible;
+   -webkit-animation: fadein 0.5s, fadeout 0.5s 2.5s; 
+    animation: fadein 0.5s, fadeout 0.5s 2.5s;
+}
+
+
+#snackbar>span {
+   padding-left: 10px;
+   position: absolute;
+   margin-top: 6px;
+}
+
+@-webkit-keyframes fadein {
+   from {top: 0; opacity: 0;} 
+   to {top: 70px; opacity: 1;}
+}
+
+@keyframes fadein {
+   from {top: 0; opacity: 0;}
+   to {top: 70px; opacity: 1;}
+}
+
+@-webkit-keyframes fadeout {
+   from {top: 70px; opacity: 1;} 
+   to {top: 0; opacity: 0;}
+}
+
+@keyframes fadeout {
+   from {top: 70px; opacity: 1;}
+   to {top: 0; opacity: 0;}
+}

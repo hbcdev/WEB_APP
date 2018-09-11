@@ -1,0 +1,23 @@
+.not-404 {
+   text-align: center;
+   color: #5d5d5d3d;
+   text-shadow: -10px -4px #f14444;
+   font-size: 15.5rem;
+}
+.not-txt {
+   text-align: center;
+   color: #5d5d5d3d;
+   text-shadow: -4px -2px #9c5252;
+   font-size: 2.75rem;
+}
+
+.back-btn {
+   color:#fff !important;
+   margin-left:43%;
+   background-color: #e94749;
+   border-color:#e94749;
+}
+.back-btn:hover {
+   background-color: #ce4a4a;
+   border-color:#ce4a4a;
+}

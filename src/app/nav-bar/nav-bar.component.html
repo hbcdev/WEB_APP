@@ -1,0 +1,26 @@
+<div class="navStyle">
+
+
+  <nav class="navbar navbar-dark bg-dark" style=" height: 58px;    box-shadow: 0px 3px 10px rgba(101, 101, 101, 0.64);">
+    <li class="navbar-brand" style="font-size: 1rem;color:#ffffffcc;   ">
+
+      <a (click)="toggleSlide($event)" style="cursor:pointer;" *ngIf="authChk"><i class="fas fa-bars fa-1x"></i></a>
+      <img src="../assets/img/HBC.jpg" alt="..." id="nav-img" *ngIf="!authChk" style="border-radius: 50%;width: 50px;height: 46px;">      &nbsp;&nbsp;&nbsp;&nbsp;{{title}}
+    </li>
+    <div class=" dropdown " *ngIf="authChk">
+      <a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true"
+        aria-expanded="false" style="color:#afaeae;cursor:pointer;">
+        <img src="../assets/img/user.png" alt="..." style="border-radius: 50%;width: 35px;height: 35px;"> &nbsp;&nbsp; Attapon
+        Jangpai
+      </a>
+      <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+        <a class="dropdown-item" routerLink="/admin"><i class="fas fa-user-plus"></i> เพิ่มผู้ใช้</a>
+        <!-- <a class="dropdown-item" href="#">menu 2</a> -->
+        <hr>
+        <a class="dropdown-item" (click)="signout()" style="cursor: pointer;"><i class="fas fa-sign-out-alt"></i> Lgout</a>
+      </div>
+    </div>
+  </nav>
+
+
+</div>

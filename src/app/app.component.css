@@ -1,0 +1,17 @@
+@media (max-width: 1199.98px) { 
+   body {
+     /* font-family: 'Kanit', sans-serif; */
+     font-family: 'Roboto-Regular', sans-serif;
+     font-size: 10px;
+  
+   }
+   .slideMenu{
+     width:0% ;
+   }
+   .navStyle{
+     margin-left:0px ;
+   }
+   .container-fluid{
+      margin-left:0px ;
+   }
+  }

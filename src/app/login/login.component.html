@@ -1,0 +1,42 @@
+<div class="row">
+  <div class="col-lg-4 col-sm-12 col-xs-12"> </div>
+  <div class="col-lg-4 col-sm-12 col-xs-12" style="margin-top:8%; box-shadow: 2px 4px 9px rgba(101, 101, 101, 0.64);
+  padding: 50px;">
+    <form [formGroup]="loginForm" (submit)="signin()">
+      <h3> Sign In</h3>
+      <small id="emailHelp" class="form-text text-muted">
+        Enter your Username and password to access admin panel.
+      </small>
+      <hr>
+      <div class="form-group">
+        <label for="exampleInputEmail1">Username</label>
+        <input *ngIf="!userchk" type="text" (keyup)="loginchk = false;" formControlName="username" class="form-control" id="exampleInputEmail1"
+          placeholder="Enter Username" required>
+        <input *ngIf="userchk" type="text" (keyup)="checkValidator()" formControlName="username" class="form-control is-invalid"
+          id="exampleInputEmail1" placeholder="Enter Username" autofocus>
+        <div class="invalid-feedback">
+          Please choose a username.
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="exampleInputPassword1">Password</label>
+        <input type="password" *ngIf="!passchk" (keyup)="loginchk = false;" formControlName="password" class="form-control" id="exampleInputPassword1"
+          placeholder="Enter Password" required>
+        <input type="password" *ngIf="passchk" (keyup)="checkValidator()" formControlName="password" class="form-control is-invalid"
+          id="exampleInputPassword1" placeholder="Enter Password" autofocus>
+        <div class="invalid-feedback">
+          Please choose a password or minimum 6 charecter.
+        </div>
+      </div>
+
+
+      <div class="alert alert-danger alert-dismissible fade show" *ngIf="loginchk">
+        <strong><u>ไม่สามารถเข้าสู่ระบบได้!</u></strong> กรุณาตรวจสอบ Username หรือ Password ให้ถูกต้อง
+
+      </div>
+      <button type="submit" class="btn btn-hbc float-right " style="">Log In
+      </button>
+    </form>
+  </div>
+  <div class="col-lg-4 col-sm-12 col-xs-12"> </div>
+</div>

@@ -1,0 +1,20 @@
+<div class="slideMenu">
+  <!-- <a href="javascript:void(0)" class="closeslide">&times;</a> -->
+  <div style="margin-top: 5%;cursor: pointer;text-align: center" (click)="toggleSlide($event)" id="hbc_logo">
+    <img src="../assets/img/HBC.jpg" alt="..." id="nav-img" *ngIf="!authChk" style="border-radius: 50%;width: 80px;height: 70px;">
+    <p style="font-size: 16px;padding-top: 11px;">Health Benefit Consultance</p>
+  </div>
+  <hr>
+  <a class="dropdown-item" routerLink="/claim" routerLinkActive="active">
+    <i class="fas fa-id-card" style=" margin-left: 30px;"></i>
+    <span> Pre-certification</span>
+  </a>
+  <a class="dropdown-item" routerLink="/faxcliam">
+    <i class="fas fa-fax" style=" margin-left: 30px;"></i>
+    <span> Fax Claim</span>
+  </a>
+  <a class="dropdown-item" routerLink="/claim2">
+    <i class="fas fa-file-invoice-dollar" style=" margin-left: 30px;"></i>
+    <span> Claim</span>
+  </a>
+</div>

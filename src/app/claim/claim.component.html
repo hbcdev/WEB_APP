@@ -1,0 +1,123 @@
+<div class="float-left">
+  <h4> Pre-certification</h4>
+</div>
+<div class="float-right">
+  <button class="btn btn-success btn-sm"><i class="fas fa-sync-alt"></i> To Day.</button>
+</div>
+<div style="margin-top:3%">
+  <hr>
+  <form [formGroup]="searchForm" (submit)="searchFN()" id="formSearch" style="display:none;">
+    <div class="row">
+
+
+      <div class="col-lg-5 col-sm-12 col-xs-12" style="padding:9px;margin-left: 5%">
+        <span>Search by : </span>
+        <div class="custom-control custom-radio custom-control-inline" style="    padding-left: 40px;">
+          <input type="radio" (change)="setTypeSearch()" id="customRadioInline1" formControlName="searchType" name="searchType" value="policy_no"
+            class="custom-control-input" checked>
+          <label class="custom-control-label" for="customRadioInline1">Policy No</label>
+        </div>
+        <div class="custom-control custom-radio custom-control-inline" style="padding-left: 40px;">
+          <input type="radio" (change)="setTypeSearch()" formControlName="searchType" name="searchType" value="NatID" id="customRadioInline2"
+            class="custom-control-input">
+          <label class="custom-control-label" for="customRadioInline2">NatID</label>
+        </div>
+        <div class="custom-control custom-radio custom-control-inline" style="padding-left: 40px;">
+          <input type="radio" (change)="setTypeSearch()" id="customRadioInline3" formControlName="searchType" name="searchType" value="date"
+            class="custom-control-input">
+          <label class="custom-control-label" for="customRadioInline3">Date</label>
+        </div>
+      </div>
+      <div class="col-lg-3 col-sm-12 col-xs-12" style="margin-left: -7%">
+        <!-- <div class="col-lg-3 col-sm-12 col-xs-12" style="margin-left: -10%;"> -->
+        <input type="text" *ngIf="!dateChk" id="textSh" class="form-control" formControlName="searchTxt" placeholder="input {{searchForm.value.searchType}}">
+        <div *ngIf="dateChk">
+          <div class="input-group mb-3">
+            <div class="input-group-prepend">
+              <span class="input-group-text" id="inputGroup-sizing-default">Start Date </span>
+            </div>
+            <input type="date" formControlName="startDate" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
+          </div>
+          <div class="input-group mb-3">
+            <div class="input-group-prepend">
+              <span class="input-group-text" id="inputGroup-sizing-default">End Date </span>
+            </div>
+            <input type="date" class="form-control" formControlName="endDate" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
+          </div>
+        </div>
+      </div>
+
+      <div class="col-lg-3">
+        <button type="submit" class="btn btn-primary "><i class="fas fa-search"></i></button>
+      </div>
+    </div>
+  </form>
+
+  <hr>
+  <h5 style="padding-left:30px">ข้อมูลวันที่ 01/01/2018</h5>
+  <table id="table_id" class="table table-hover table-bordered" style="width:100%;margin-top: 1%" [mfData]="data" #mf="mfDataTable"
+    [mfRowsOnPage]="10">
+    <thead>
+      <tr>
+        <th>Notify No</th>
+        <th>Notify Date</th>
+        <th>Policy No</th>
+        <th>Plan</th>
+        <th>Hospital</th>
+        <th>Admit Date</th>
+        <th>ICD 10</th>
+        <th>Admit Type</th>
+        <th>Treatment type</th>
+        <th>Recieve</th>
+        <th>Ref No</th>
+      </tr>
+    </thead>
+    <tbody>
+
+      <tr *ngFor="let item of mf.data ">
+        <td data-toggle="modal" data-target=".bd-example-modal-lg" data (click)="claim_detail(item)" style="cursor: pointer;color:#007d92"><i
+            class="far fa-eye"></i> {{item.Notify_No}}</td>
+        <td>{{item.Notify_Date}}</td>
+        <td>{{item.Policy_No}}</td>
+        <td>{{item.Plan}}</td>
+        <td>{{item.Hospital}}</td>
+        <td>{{item.Admit_Date}}</td>
+        <td>{{item.ICD_10 }}</td>
+        <td>{{item.Admit_Type}}</td>
+        <td>{{item.Treatment_type}}</td>
+        <td>{{item.Recieve}}</td>
+        <td>{{item.Ref_No}}</td>
+      </tr>
+
+    </tbody>
+    <tfoot>
+      <tr>
+        <td colspan="11">
+          <mfBootstrapPaginator></mfBootstrapPaginator>
+        </td>
+      </tr>
+    </tfoot>
+  </table>
+
+</div>
+
+<ng-template #content let-modal>
+  <div class="modal-header">
+    <h4 class="modal-title">Modal title</h4>
+    <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body">
+    <p>One fine body&hellip;</p>
+  </div>
+  <div class="modal-footer">
+    <button type="button" class="btn btn-light" (click)="modal.close('Close click')">Close</button>
+  </div>
+</ng-template>
+
+
+
+
+<!-- toast -->
+<div id="snackbar"><i class="fas fa-exclamation-circle fa-2x"></i> <span></span></div>
