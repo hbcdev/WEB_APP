@@ -1,12 +1,416 @@
-<div class="modal-header">
-  <h4 class="modal-title">Hi there!</h4>
+<div class="modal-header modal-xl">
+  <h5 class="modal-title">รายละเอียดเคลม <small>( Claim Detail )</small></h5>
   <button type="button" class="close" aria-label="Close" (click)="activeModal.dismiss('Cross click')">
     <span aria-hidden="true">&times;</span>
   </button>
 </div>
 <div class="modal-body">
-  <p>Hello, {{name.Notify_No}}!</p>
+  <!-- <h5>Notify No : <small><u> {{data.notify_no}}</u> </small></h5>
+  <hr> -->
+  <ngb-tabset>
+    <ngb-tab>
+      <ng-template ngbTabTitle class="tab-title-txt"><b>Claim Detail</b></ng-template>
+      <ng-template ngbTabContent>
+        <div class="row" style="font-size:16px;padding:20px;padding-left:30px;">
+          <!-- <div class="col-lg-6 col-sm-6 col-xs-12"> -->
+          <!-- *****************************************************************  Row 1 ******************************************************************** -->
+          <div class="row box-data">
+            <div class="col-lg-3 col-sm-3 col-xs-6">
+              <div class="p-border">
+                <div class="label-bg label-bg-01">Notify No </div>
+                <div class="p-left">
+                  <p> {{data.notify_no}} </p>
+                </div>
+              </div>
+            </div>
+            <div class="col-lg-3 col-sm-3 col-xs-6">
+              <div class="p-border">
+                <div class="label-bg label-bg-01">HBC Date </div>
+                <div class="p-left">
+                  <p> {{data.HBCacknowledge_date| date :
+                    "dd/MM/yyyy"}}</p>
+                </div>
+              </div>
+            </div>
+            <div class="col-lg-3 col-sm-3 col-xs-6">
+              <div class="p-border">
+                <div class="label-bg label-bg-01">Policy No </div>
+                <div class="p-left">
+                  <p> {{data.Pol_number}}</p>
+                </div>
+              </div>
+            </div>
+            <div class="col-lg-3 col-sm-3 col-xs-6">
+              <div class="p-border">
+                <div class="label-bg label-bg-01">Client name </div>
+                <div class="p-left">
+                  <p> {{data.PatName}}</p>
+                </div>
+              </div>
+            </div>
+            <div class="col-lg-3 col-sm-3 col-xs-6">
+              <div class="p-border">
+                <div class="label-bg label-bg-01">Plan </div>
+                <div class="p-left">
+                  <p> {{data.PlanCode}}</p>
+                </div>
+              </div>
+            </div>
+            <div class="col-lg-3 col-sm-3 col-xs-6">
+              <div class="p-border">
+                <div class="label-bg label-bg-01">Claim Type </div>
+                <div class="p-left">
+                  <p> {{data.Claim_Type}}</p>
+                </div>
+              </div>
+            </div>
+            <div class="col-lg-3 col-sm-3 col-xs-6">
+              <div class="p-border">
+                <div class="label-bg label-bg-01">Claim_From </div>
+                <div class="p-left">
+                  <p *ngIf="data.Claim_From === 'NOR' ">ลูกค้าส่งเบิก</p>
+                  <p *ngIf="data.Claim_From === 'CRE' ">โรงพยาบาลวางบิล</p>
+                  <p *ngIf="data.Claim_From === 'FAX' ">Fax Claim</p>
+                </div>
+              </div>
+            </div>
+            <div class="col-lg-3 col-sm-3 col-xs-6">
+              <div class="p-border">
+                <div class="label-bg label-bg-01">Claim Status </div>
+                <div class="p-left">
+                  <p> {{data.Claim_Status }}</p>
+                </div>
+              </div>
+            </div>
+            <div class="col-lg-6 col-sm-6 col-xs-12">
+              <div class="p-border">
+                <div class="label-bg label-bg-01">Claim No </div>
+                <div class="p-left">
+                  <p> {{data.claim_no}}</p>
+                </div>
+              </div>
+            </div>
+
+
+          </div>
+
+
+          <div class="row box-data">
+            <div class="col-lg-3 col-sm-3 col-xs-6">
+              <div class="p-border">
+                <div class="label-bg label-bg-02">prov id </div>
+                <div class="p-left">
+                  <p> {{data.prov_id}}</p>
+                </div>
+              </div>
+            </div>
+            <div class="col-lg-3 col-sm-3 col-xs-6">
+              <div class="p-border">
+                <div class="label-bg label-bg-02">Prov name </div>
+                <div class="p-left">
+                  <p> {{data.prov_name}}</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-lg-3 col-sm-3 col-xs-6">
+              <div class="p-border">
+                <div class="label-bg label-bg-02">Loss Date </div>
+                <div class="p-left">
+                  <p>
+                    <span *ngIf="data.Admit_date !== '1900-01-01T00:00:00'">
+                      {{data.Loss_date | date : "dd/MM/yyyy"}}
+                    </span>
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-lg-3 col-sm-3 col-xs-6">
+              <div class="p-border">
+                <div class="label-bg label-bg-02">Admit Date </div>
+                <div class="p-left">
+                  <p>
+                    <span *ngIf="data.Admit_date !== '1900-01-01T00:00:00'">
+                      {{data.Admit_date | date:"dd/MM/yyyy" }}
+                    </span>
+                  </p>
+                </div>
+              </div>
+            </div>
+            <div class="col-lg-3 col-sm-3 col-xs-6">
+              <div class="p-border">
+                <div class="label-bg label-bg-02">Disc Date </div>
+                <div class="p-left">
+                  <p>
+                    <span *ngIf="data.Disc_date !== '1900-01-01T00:00:00'">
+                      {{data.Disc_date | date:"dd/MM/yyyy" }}
+                    </span>
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-lg-3 col-sm-3 col-xs-6">
+              <div class="p-border">
+                <div class="label-bg label-bg-02">IncurAmt </div>
+                <div class="p-left">
+                  <p> {{data.IncurAmt | number }}</p>
+                </div>
+              </div>
+            </div>
+            <div class="col-lg-3 col-sm-3 col-xs-6">
+              <div class="p-border">
+                <div class="label-bg label-bg-02">PAID </div>
+                <div class="p-left">
+                  <p>
+                    <span *ngIf="data.PAID !== '1900-01-01T00:00:00'">
+                      {{data.PAID | date:"dd/MM/yyyy" }}
+                    </span>
+                  </p>
+                </div>
+              </div>
+            </div>
+
+          </div>
+          <div class="row box-data">
+            <div class="col-lg-3 col-sm-3 col-xs-6">
+              <div class="p-border">
+                <div class="label-bg label-bg-02">ReF. Date </div>
+                <div class="p-left">
+                  <p>
+                    <span *ngIf="data.ref_date !== '1900-01-01T00:00:00'">
+                      {{data.ref_date | date:"dd/MM/yyyy" }}
+                    </span>
+                  </p>
+                </div>
+              </div>
+            </div>
+            <div class="col-lg-3 col-sm-3 col-xs-6">
+              <div class="p-border">
+                <div class="label-bg label-bg-02">Assess Date </div>
+                <div class="p-left">
+                  <p>
+                    <span *ngIf="data.assessor_date !== '1900-01-01T00:00:00'">
+                      {{data.assessor_date | date:"dd/MM/yyyy" }}
+                    </span>
+                  </p>
+                </div>
+              </div>
+            </div>
+            <div class="col-lg-3 col-sm-3 col-xs-6">
+              <div class="p-border">
+                <div class="label-bg label-bg-02">FAX Date </div>
+                <div class="p-left">
+                  <p>
+                    <span *ngIf="data.fax_date !== '1900-01-01T00:00:00'">
+                      {{data.fax_date | date:"dd/MM/yyyy" }}
+                    </span>
+
+                  </p>
+                </div>
+              </div>
+            </div>
+            <div class="col-lg-3 col-sm-3 col-xs-6">
+              <div class="p-border">
+                <div class="label-bg label-bg-02">Audit Date </div>
+                <div class="p-left">
+                  <p>
+                    <span *ngIf="data.audit_summit !== '1900-01-01T00:00:00'">
+                      {{data.audit_summit | date:"dd/MM/yyyy" }}
+                    </span>
+                  </p>
+                </div>
+              </div>
+            </div>
+            <div class="col-lg-3 col-sm-3 col-xs-6">
+              <div class="p-border">
+                <div class="label-bg label-bg-02">Audit By </div>
+                <div class="p-left">
+                  <p> {{data.audit_by}}</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-lg-3 col-sm-3 col-xs-6">
+              <div class="p-border">
+                <div class="label-bg label-bg-02">Return Date </div>
+                <div class="p-left">
+                  <p>
+                    <span *ngIf="data.return_date !== '1900-01-01T00:00:00'">
+                      {{data.return_date | date:"dd/MM/yyyy" }}
+                    </span>
+                  </p>
+                </div>
+              </div>
+            </div>
+            <div class="col-lg-3 col-sm-3 col-xs-6">
+              <div class="p-border">
+                <div class="label-bg label-bg-02">Paid Date </div>
+                <div class="p-left">
+                  <p>
+                    <span *ngIf="data.paid_date !== '1900-01-01T00:00:00'">
+                      {{data.paid_date | date:"dd/MM/yyyy" }}
+                    </span>
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="row box-data">
+            <div class="col-lg-3 col-sm-3 col-xs-6">
+              <div class="p-border">
+                <div class="label-bg label-bg-03">PayableAmt</div>
+                <div class="p-left">
+                  <p>
+                    <span>
+                      {{data.PayableAmt | number }}
+                    </span>
+                  </p>
+                </div>
+              </div>
+            </div>
+            <div class="col-lg-3 col-sm-3 col-xs-6">
+              <div class="p-border">
+                <div class="label-bg label-bg-03">DeclineAmt</div>
+                <div class="p-left">
+                  <p>
+                    <span>
+                      {{data.DeclineAmt | number }}
+                    </span>
+                  </p>
+                </div>
+              </div>
+            </div>
+            <div class="col-lg-3 col-sm-3 col-xs-6">
+              <div class="p-border">
+                <div class="label-bg label-bg-03">fcharge</div>
+                <div class="p-left">
+                  <p>
+                    <span>
+                      {{data.fcharge | number }}
+                    </span>
+                  </p>
+                </div>
+              </div>
+            </div>
+            <div class="col-lg-3 col-sm-3 col-xs-6">
+              <div class="p-border">
+                <div class="label-bg label-bg-03">fbenfpaid</div>
+                <div class="p-left">
+                  <p>
+                    <span>
+                      {{data.fbenfpaid | number }}
+                    </span>
+                  </p>
+                </div>
+              </div>
+            </div>
+            <div class="col-lg-3 col-sm-3 col-xs-6">
+              <div class="p-border">
+                <div class="label-bg label-bg-03">fremain</div>
+                <div class="p-left">
+                  <p>
+                    <span>
+                      {{data.fremain | number }}
+                    </span>
+                  </p>
+                </div>
+              </div>
+            </div>
+            <div class="col-lg-3 col-sm-3 col-xs-6">
+              <div class="p-border">
+                <div class="label-bg label-bg-03">sbenfpaid</div>
+                <div class="p-left">
+                  <p>
+                    <span>
+                      {{data.sbenfpaid | number }}
+                    </span>
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+
+        </div>
+
+
+
+        <div class="row">
+          <div class="col-lg-8 col-sm-8 col-xs-12 left-col">
+            <table class="table table-bordered table-hover ">
+              <thead>
+                <th>header</th>
+                <th>header</th>
+                <th>header</th>
+                <th>header</th>
+                <th>header</th>
+                <th>header</th>
+                <th>header</th>
+                <th>header</th>
+                <th>header</th>
+                <th>header</th>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>body</td>
+                  <td>body</td>
+                  <td>body</td>
+                  <td>body</td>
+                  <td>body</td>
+                  <td>body</td>
+                  <td>body</td>
+                  <td>body</td>
+                  <td>body</td>
+                  <td>body</td>
+                </tr>
+
+              </tbody>
+            </table>
+          </div>
+          <div class="col-lg-4 col-sm-4 col-xs-12">
+            <div class="card ">
+              <div class="card-header n2i">
+                Note
+              </div>
+              <div class="card-body n2i-body">
+                <p>{{data.snote}}
+                </p>
+                <p>{{data.note2ins}}
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </ng-template>
+    </ngb-tab>
+    <ngb-tab>
+      <ng-template ngbTabTitle class="tab-title-txt"><b>Tab 2</b></ng-template>
+      <ng-template ngbTabContent>Food truck fixie locavore, accusamus mcsweeney's marfa nulla single-origin coffee
+        squid.
+        <p>Exercitation +1 labore velit, blog sartorial PBR leggings next level wes anderson artisan four loko
+          farm-to-table
+          craft beer twee. Qui photo booth letterpress, commodo enim craft beer mlkshk aliquip jean shorts ullamco ad
+          vinyl
+          cillum PBR. Homo nostrud organic, assumenda labore aesthetic magna delectus mollit. Keytar helvetica VHS
+          salvia
+          yr, vero magna velit sapiente labore stumptown. Vegan fanny pack odio cillum wes anderson 8-bit, sustainable
+          jean
+          shorts beard ut DIY ethical culpa terry richardson biodiesel. Art party scenester stumptown, tumblr butcher
+          vero
+          sint qui sapiente accusamus tattooed echo park.</p>
+      </ng-template>
+    </ngb-tab>
+
+
+  </ngb-tabset>
+
+
+  <!-- <hr style="    border: 0.5px solid #f1600629;
+  border-radius: 50px;"> -->
+
 </div>
-<div class="modal-footer">
+<div class="modal-footer" style="    margin-top: -30px;">
   <button type="button" class="btn btn-outline-dark" (click)="activeModal.close('Close click')">Close</button>
 </div>

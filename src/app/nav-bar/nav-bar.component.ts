@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import * as $ from 'jquery';
 import { AuthenticateService } from '../authentication/authenticate.service';
-
+import { CookieService } from 'ngx-cookie-service';
 
 @Component({
   selector: 'app-nav-bar',
@@ -11,7 +11,7 @@ import { AuthenticateService } from '../authentication/authenticate.service';
 export class NavBarComponent implements OnInit {
   authChk: any;
   title: string;
-  constructor(private service: AuthenticateService) {
+  constructor(private service: AuthenticateService, private cookieService: CookieService) {
     this.authChk = this.service.Guard();
     if (this.authChk) {
       this.title = "Chubb Sammagi Insurance Public Company Ltd.";
@@ -43,6 +43,7 @@ export class NavBarComponent implements OnInit {
   }
 
   signout() {
+
     location.href = '/';
     this.service.signout();
   }

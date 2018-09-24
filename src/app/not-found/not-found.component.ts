@@ -20,6 +20,6 @@ export class NotFoundComponent implements OnInit {
     $(".container-fluid").css("margin-left", "15%");
     $('nav').show();
     $('.slideMenu').show();
-    this.route.navigate(['/claim']);
+    this.route.navigate(['/assess']);
   }
 }

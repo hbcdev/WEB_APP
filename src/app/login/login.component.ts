@@ -3,7 +3,7 @@ import * as $ from 'jquery';
 import { Router } from '@angular/router';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { AuthenticateService } from '../authentication/authenticate.service';
-
+import { CookieService } from 'ngx-cookie-service';
 
 @Component({
   selector: 'app-login',
@@ -11,6 +11,7 @@ import { AuthenticateService } from '../authentication/authenticate.service';
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent implements OnInit {
+  cookieValue = 'UNKNOWN';
 
   userchk: any = false;
   passchk: any = false;
@@ -22,13 +23,15 @@ export class LoginComponent implements OnInit {
     password: new FormControl('', [Validators.required, Validators.minLength(6)])
   });
 
-  constructor(private route: Router, private service: AuthenticateService) { }
+  constructor(private route: Router, private service: AuthenticateService, private cookieService: CookieService) { }
 
   ngOnInit() {
     let chk = this.service.Guard();
     if (chk == true) {
       // location.href = '/';
-      this.route.navigate(['/claim']);
+
+
+      this.route.navigate([this.cookieService.get('menu')]);
     } else {
       $(".slideMenu").css('width', '0');
       $(".navStyle").css("margin-left", "0");
@@ -59,9 +62,11 @@ export class LoginComponent implements OnInit {
 
       if (statuslog) {
         location.href = '/';
-        this.route.navigate(["/claim"]);
+        this.route.navigate(["/assess"]);
+        this.cookieService.set('menu', '/assess');
       } else {
         this.loginchk = true;
+        this.cookieService.set('menu', '/');
       }
     }
 

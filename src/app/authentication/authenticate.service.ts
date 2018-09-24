@@ -1,11 +1,12 @@
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
+import { CookieService } from 'ngx-cookie-service';
 @Injectable({
   providedIn: 'root'
 })
 export class AuthenticateService {
   userCheck: any = false;
-  constructor(private route: Router) { }
+  constructor(private route: Router, private cookieService: CookieService) { }
 
 
   Guard() {
@@ -76,6 +77,7 @@ export class AuthenticateService {
     }
   }
   signout() {
+    this.cookieService.deleteAll();
     console.log("out");
     let authObj = {
       auth: false,

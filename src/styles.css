@@ -9,13 +9,14 @@ body {
 }
 
 /* // Large devices (desktops, 992px and up) */
-@media (max-width: 1199.98px) { 
+@media screen and (max-width: 1199.98px) { 
   body {
     /* font-family: 'Kanit', sans-serif; */
-    font-family: 'Roboto-Regular', sans-serif;
-    font-size: 10px;
+    /* font-family: 'Roboto-Regular', sans-serif; */
+    /* font-size: 10px; */
  
   }
+
 
  }
 
@@ -33,7 +34,36 @@ body {
   background-color: #efefef;
   text-align: center;
 } */
-
+.card{
+  border-radius: 0;
+}
+.card-header{
+  background-color: rgba(70, 157, 187, 0.16);
+  font-weight: 600;
+  font-size: 16px;
+  color: #4c4a4ad4;
+}
+div.modal-footer {
+  padding: 30px;
+  /* margin-top: 80px; */
+}
+div.modal-body {
+  padding: 30px;
+  /* margin-top: 80px; */
+}
+div.modal-header {
+  padding: 15px;
+  background-color: #15799c;
+  color: #fff;
+  border-radius: 0;
+  
+}
+div.modal-content {
+  width: 1500px ;
+  margin-left: -42% ;
+  border-radius: 0;
+  border:0;
+}
  .footer {
   position: fixed;
   right: 0;

@@ -1,5 +1,5 @@
 <div class="float-left">
-  <h4> Assess Claim</h4>
+  <h4> Fax Claim</h4>
 </div>
 <div class="float-right">
   <button class="btn btn-success btn-sm" (click)="ngOnInit()"><i class="fas fa-sync-alt"></i> To Day.</button>
@@ -80,7 +80,8 @@
         <th>Prov Name</th>
 
         <th>Admit Date <small><b>( วัน/เดือน/ปี )</b></small> </th>
-        <th>sbenfpaid</th>
+        <th>fcharge</th>
+        <th>fbenfpaid</th>
 
     </thead>
     <tbody>
@@ -93,7 +94,8 @@
         <td>{{item.PlanCode}}</td>
         <td>{{item.prov_name}}</td>
         <td>{{item.Admit_date | date:"dd/MM/yyyy"}}</td>
-        <td class="text-right">{{item.sbenfpaid | number}}</td>
+        <td class="text-right">{{item.fcharge | number}}</td>
+        <td class="text-right">{{item.fbenfpaid | number}}</td>
 
       </tr>
 

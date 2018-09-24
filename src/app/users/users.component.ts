@@ -65,9 +65,19 @@ export class UsersComponent implements OnInit {
     this.usersFrm.setValue(data);
   }
   delUser(index, data) {
-    swal("ต้องการลบข้อมูลของ " + data.username + " หรือไม่ ?", {
-      dangerMode: true,
-      buttons: true
+    "ต้องการลบข้อมูลของ " + data.username + " หรือไม่ ?", {
+      'dangerMode': true,
+      'buttons': true
+    }
+
+
+
+    swal({
+      title: "",
+      text: "ต้องการลบข้อมูลของ " + data.username + " หรือไม่ ?",
+      icon: "warning",
+      buttons: ['Cancel', 'Ok'],
+      dangerMode: true
     }).then((value) => {
       console.log(value);
       if (value) {

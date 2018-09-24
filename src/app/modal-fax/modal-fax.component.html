@@ -1,0 +1,40 @@
+<div class="modal-header modal-xl">
+  <h5 class="modal-title">Notify No : <small><u> {{data.notify_no}}</u> </small></h5>
+  <button type="button" class="close" aria-label="Close" (click)="activeModal.dismiss('Cross click')">
+    <span aria-hidden="true">&times;</span>
+  </button>
+</div>
+<div class="modal-body">
+  <table class="table table-bordered">
+    <thead>
+      <tr>
+        <th nowrap>Notify No.</th>
+        <th nowrap>Policy No.</th>
+        <th nowrap>Client Name</th>
+        <th nowrap>Plan</th>
+        <th nowrap>Prov Name</th>
+        <th>Admit Date</th>
+        <th>fcharge</th>
+        <th>fbenfpaid</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td nowrap>{{data.notify_no}}</td>
+        <td nowrap>{{data.Pol_number}}</td>
+        <td nowrap>{{data.PatName}}</td>
+        <td nowrap>{{data.PlanCode}}</td>
+        <td nowrap>{{data.prov_name}}</td>
+        <td nowrap>{{data.Admit_date | date : "dd/MM/yyyy"}}</td>
+        <td nowrap>{{data.fcharge | number}}</td>
+        <td nowrap>{{data.fbenfpaid | number}}</td>
+    </tbody>
+  </table>
+</div>
+<div class="modal-footer">
+  <button type="button" class="btn btn-outline-dark" (click)="activeModal.close('Close click')">Close</button>
+</div>
+
+<!-- fax  :: Claim notify_no, policy_no, client_name, plan, prov_name, admis_date, fcharge, fbenfpaid 
+       Assess :: Claim notify_no, policy_no, client_name, plan, prov_name, admis_date, scharge, sbenfpaid 
+       Web :: notify_no, policy_no, client_name, plan, prov_name, admis_date, fcharge, fbenfpaid -->

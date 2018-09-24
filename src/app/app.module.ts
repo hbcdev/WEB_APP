@@ -13,13 +13,23 @@ import { DataTableModule } from "angular-6-datatable";
 import { ModalClaimComponent } from './modal-claim/modal-claim.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { UsersComponent } from './users/users.component';
+import { HttpClientModule } from '@angular/common/http';
+import { FaxClaimComponent } from './fax-claim/fax-claim.component';
+import { ModalFaxComponent } from './modal-fax/modal-fax.component';
+import { WebClaimComponent } from './web-claim/web-claim.component';
+import { PrecretComponent } from './precret/precret.component';
+import { CookieService } from 'ngx-cookie-service';
+// import { ApiService } from '';
 
 const appRoutes: Routes = [
 
     { path: 'login', component: LoginComponent },
     { path: '', redirectTo: '/login', pathMatch: 'full' },
-    { path: 'claim', component: ClaimComponent },
+    { path: 'assess', component: ClaimComponent },
+    { path: 'faxcliam', component: FaxClaimComponent },
+    { path: 'web', component: WebClaimComponent },
     { path: 'admin', component: UsersComponent },
+    { path: 'precert', component: PrecretComponent },
     { path: '**', component: NotFoundComponent }
 
 ];
@@ -35,7 +45,11 @@ const appRoutes: Routes = [
         ClaimComponent,
         NotFoundComponent,
         ModalClaimComponent,
-        UsersComponent
+        UsersComponent,
+        FaxClaimComponent,
+        ModalFaxComponent,
+        WebClaimComponent,
+        PrecretComponent,
 
     ],
     imports: [
@@ -48,11 +62,15 @@ const appRoutes: Routes = [
         ReactiveFormsModule,
         DataTableModule,
         NgbModule.forRoot(),
+        HttpClientModule
         // ModalClaimComponent
 
     ],
-    entryComponents: [ModalClaimComponent],
-    providers: [],
+    entryComponents: [
+        ModalClaimComponent,
+        ModalFaxComponent
+    ],
+    providers: [CookieService],
     bootstrap: [AppComponent]
 })
 export class AppModule { }

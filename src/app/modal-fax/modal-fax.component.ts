@@ -1,11 +1,11 @@
 import { Component, Input } from '@angular/core';
 import { NgbActiveModal, NgbModal } from '@ng-bootstrap/ng-bootstrap';
 @Component({
-  selector: 'app-modal-claim',
-  templateUrl: './modal-claim.component.html',
-  styleUrls: ['./modal-claim.component.css']
+  selector: 'app-modal-fax',
+  templateUrl: './modal-fax.component.html',
+  styleUrls: ['./modal-fax.component.css']
 })
-export class ModalClaimComponent {
+export class ModalFaxComponent {
   @Input() data;
   constructor(public activeModal: NgbActiveModal) { }
 
